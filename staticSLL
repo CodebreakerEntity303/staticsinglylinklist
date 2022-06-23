@@ -1,0 +1,33 @@
+#include <stdio.h>
+#include <stdlib.h>
+struct node
+{
+    int data;
+    struct node * next ;
+}*head,*first,*second,*third;
+void create(){
+    first=(struct node*) malloc (sizeof(struct node));
+    second=(struct node*) malloc (sizeof(struct node));
+    third=(struct node*) malloc (sizeof(struct node));
+    first ->data=20;
+    first->next=second;
+    second ->data=40;
+    second->next=third;
+    third ->data=80;
+    third->next=NULL;
+    head=first;
+}
+void display(struct node*head){
+    struct node*p;
+    p=head;
+    while (p!=NULL)
+    {
+        printf("%d\n",p->data);
+        p=p->next;
+    }
+}
+int main(){
+    create();
+    display(head);
+    return 0;
+}
